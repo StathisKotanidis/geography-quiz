@@ -9,5 +9,10 @@ export default function App() {
 }
 
 function StartingScreen() {
-  return <h1>Ultimate Geography Quiz</h1>;
+  return (
+    <div>
+      <h1> 🌍 Ultimate Geography Quiz</h1>
+      <button>Start</button>
+    </div>
+  );
 }
