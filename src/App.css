@@ -1,38 +1,117 @@
+/* General Styling */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(to bottom, rgb(51, 233, 163), rgb(83, 183, 223));
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .App {
-  text-align: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* StartingScreen Styling */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.starting-screen-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-top: 2rem;
+}
+
+.quiz-title-container {
+  flex-basis: 20%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.4rem;
 }
 
-.App-link {
-  color: #61dafb;
+.quiz-description-container {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
+.quiz-description-container p {
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+}
+
+.description-container {
+  display: inline-block;
+}
+
+.start-button-container {
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.startBtn {
+  width: 200px;
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background: linear-gradient(to right, rgb(15, 216, 156), rgb(40, 213, 219));
+  border: 1px solid rgb(15, 216, 156);
+}
+
+.startBtn:hover {
+  transform: scale(1.1);
+}
+
+/* Animations */
+
+.typing {
+  display: inline-block;
+  border-right: 5px solid;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40, end) forwards,
+    cursor 0.4s step-end infinite alternate;
+}
+
+.typing:first-child(1) {
+  animation-delay: 0s;
+}
+
+.typing:nth-child(2n) {
+  animation-delay: 4.5s;
+}
+
+.typing:last-child(3) {
+  animation-delay: 9s;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
   from {
-    transform: rotate(0deg);
+    width: 0;
   }
   to {
-    transform: rotate(360deg);
+    width: 100%;
   }
 }
