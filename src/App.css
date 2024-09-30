@@ -81,24 +81,21 @@ button:hover {
 
 .typing {
   display: inline-block;
-  border-right: 5px solid;
-  width: 100%;
+  border-right: 5px solid; /* The blinking caret */
   white-space: nowrap;
   overflow: hidden;
+  width: 0; /* Start with zero width */
   animation: typing 4s steps(40, end) forwards,
     cursor 0.4s step-end infinite alternate;
+  animation-fill-mode: forwards;
 }
 
-.typing:first-child(1) {
-  animation-delay: 0s;
-}
-
-.typing:nth-child(2n) {
-  animation-delay: 4.5s;
-}
-
-.typing:last-child(3) {
-  animation-delay: 9s;
+.hidden {
+  display: inline-block;
+  width: 0; /* Ensure hidden text starts at width 0 */
+  border-right: 5px solid transparent; /* Hide caret initially */
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @keyframes cursor {
@@ -109,9 +106,9 @@ button:hover {
 
 @keyframes typing {
   from {
-    width: 0;
+    width: 0; /* Start with zero width */
   }
   to {
-    width: 100%;
+    width: 100%; /* Expand to 100% width */
   }
 }
