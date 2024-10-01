@@ -23,7 +23,7 @@ button:hover {
   height: 100vh;
 }
 
-/* StartingScreen Styling */
+/* StartingScreen Component Styling */
 
 .starting-screen-container {
   height: 100%;
@@ -48,8 +48,8 @@ button:hover {
 }
 
 .quiz-description-container p {
-  font-size: 2.5rem;
-  letter-spacing: 5px;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
 }
 
 .description-container {
@@ -81,19 +81,19 @@ button:hover {
 
 .typing {
   display: inline-block;
-  border-right: 5px solid; /* The blinking caret */
+  border-right: 5px solid;
   white-space: nowrap;
   overflow: hidden;
-  width: 0; /* Start with zero width */
-  animation: typing 4s steps(40, end) forwards,
+  width: 0;
+  animation: typing 3s steps(40, end) forwards,
     cursor 0.4s step-end infinite alternate;
   animation-fill-mode: forwards;
 }
 
 .hidden {
   display: inline-block;
-  width: 0; /* Ensure hidden text starts at width 0 */
-  border-right: 5px solid transparent; /* Hide caret initially */
+  width: 0;
+  border-right: 5px solid transparent;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -106,9 +106,9 @@ button:hover {
 
 @keyframes typing {
   from {
-    width: 0; /* Start with zero width */
+    width: 0;
   }
   to {
-    width: 100%; /* Expand to 100% width */
+    width: 100%;
   }
 }
