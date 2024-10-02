@@ -2,13 +2,11 @@ import { useReducer } from "react";
 import "./App.css";
 import StartingScreen from "./components/StartingScreen";
 import Challenge1 from "./components/Challenge1";
-// import Progress from "./components/Progress";
 
 const initialState = {
   status: "waitingToStart",
   questions: [],
   index: 0,
-  // answer: "",
 };
 
 function reducer(state, action) {
@@ -25,13 +23,16 @@ function reducer(state, action) {
 }
 
 export default function App() {
-  const [{ status, questions }, dispatch] = useReducer(reducer, initialState);
+  const [{ status, questions, index }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   return (
     <div className="App">
       {status === "waitingToStart" && <StartingScreen dispatch={dispatch} />}
       {status === "playingFirstChallenge" && (
-        <Challenge1 dispatch={dispatch} questions={questions} />
+        <Challenge1 dispatch={dispatch} questions={questions} index={index} />
       )}
     </div>
   );
