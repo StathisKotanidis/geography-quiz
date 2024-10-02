@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
 
-function StartingScreen() {
-  const [activeClass, setActiveClass] = useState([false, false, false, false]);
+function StartingScreen({ dispatch }) {
+  const [activeClass, setActiveClass] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   useEffect(() => {
     setTimeout(() => setActiveClass((prev) => [true, false, false]), 0);
     setTimeout(() => setActiveClass((prev) => [true, true, false]), 3500);
     setTimeout(() => setActiveClass((prev) => [true, true, true]), 7000);
     setTimeout(() => setActiveClass((prev) => [true, true, true, true]), 10500);
+    setTimeout(
+      () => setActiveClass((prev) => [true, true, true, true, true]),
+      13500
+    );
   }, []);
 
   return (
@@ -52,9 +62,22 @@ function StartingScreen() {
             select the closest population from the given choices.
           </p>
         </div>
+        <div className="description-container">
+          <p
+            style={{ color: "purple" }}
+            className={activeClass[4] ? "typing" : "hidden"}
+          >
+            Are you ready to play?
+          </p>
+        </div>
       </div>
       <div className="start-button-container">
-        <button className="startBtn">Start</button>
+        <button
+          className="startBtn"
+          onClick={() => dispatch({ type: "startChallengeOne" })}
+        >
+          Start
+        </button>
       </div>
     </div>
   );
